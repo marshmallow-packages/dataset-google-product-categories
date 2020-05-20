@@ -1,0 +1,33 @@
+{
+    "name": "marshmallow/dataset-google-product-categories",
+    "description": "This dataset contains all the categories available for Google Product Feeds in Dutch",
+    "keywords": ["marshmallow"],
+    "homepage": "https://github.com/Marshmallow-Development/",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stef",
+            "email": "stef@marshmallow.dev",
+            "homepage": "https://marshmallow.dev",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "stef@marshmallow.dev"
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {"Marshmallow\\Datasets\\GoogleProductCategories\\": "src"}
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Marshmallow\\Datasets\\GoogleProductCategories\\ServiceProvider"
+            ]
+        }
+    }
+}
