@@ -3,7 +3,6 @@
 namespace Marshmallow\Datasets\GoogleProductCategories\Seeds;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Marshmallow\Datasets\GoogleProductCategories\Models\GoogleProductCategory;
 
 /**
@@ -31,7 +30,6 @@ class GoogleProductCategorySeeder extends Seeder
     			continue;
     		}
 
-    		// $category = explode('-', $category, 2);
     		list($category_id, $category_name) = explode('-', $category, 2);
     		$category_id = intval($category_id);
     		$category_name = trim($category_name);
