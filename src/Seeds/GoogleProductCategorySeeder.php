@@ -18,30 +18,30 @@ class GoogleProductCategorySeeder extends Seeder
      */
     public function run()
     {
-    	$categories = file_get_contents(__dir__ . '/../../resources/producttype_taxonomy-with-ids.nl-NL.txt');
-    	$categories = explode("\n", $categories);
+        $categories = file_get_contents(__dir__ . '/../../resources/producttype_taxonomy-with-ids.nl-NL.txt');
+        $categories = explode("\n", $categories);
 
-    	$this->command->getOutput()->progressStart(count($categories));
+        $this->command->getOutput()->progressStart(count($categories));
 
-    	foreach ($categories as $loop_count => $category) {
-    		$this->command->getOutput()->progressAdvance();
+        foreach ($categories as $loop_count => $category) {
+            $this->command->getOutput()->progressAdvance();
 
-    		if ($loop_count == 0) {
-    			continue;
-    		}
+            if ($loop_count == 0) {
+                continue;
+            }
 
-    		list($category_id, $category_name) = explode('-', $category, 2);
-    		$category_id = intval($category_id);
-    		$category_name = trim($category_name);
+            list($category_id, $category_name) = explode('-', $category, 2);
+            $category_id = intval($category_id);
+            $category_name = trim($category_name);
 
-    		GoogleProductCategory::updateOrCreate([
-    			'id' => $category_id,
-    			'name' => $category_name,
-    		],[
-    			'name' => $category_name
-    		]);
-    	}
+            GoogleProductCategory::updateOrCreate([
+                'id' => $category_id,
+                'name' => $category_name,
+            ], [
+                'name' => $category_name,
+            ]);
+        }
 
-    	$this->command->getOutput()->progressFinish();
+        $this->command->getOutput()->progressFinish();
     }
 }
